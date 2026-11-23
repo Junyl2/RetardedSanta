@@ -185,3 +185,10 @@ html,body{overscroll-behavior-y:none}
 }
 
 @media(min-width:701px){.scribble{font-size:1.2rem;margin-left:200px}}
+
+/* Festive page scrollbar, with a standard fallback for Firefox. */
+html{scrollbar-color:var(--red) var(--dark);scrollbar-width:thin}
+html::-webkit-scrollbar{width:12px}
+html::-webkit-scrollbar-track{background:var(--dark)}
+html::-webkit-scrollbar-thumb{background:var(--red);border:3px solid var(--dark);border-radius:999px}
+html::-webkit-scrollbar-thumb:hover{background:var(--gold)}
