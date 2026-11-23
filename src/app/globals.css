@@ -127,3 +127,6 @@ main{overflow-x:clip}
 @media(max-width:950px){.header.scrolled .nav-wrap{padding-top:10px;padding-bottom:10px}}
 @media(prefers-reduced-motion:reduce){.header{transition:none}}
 
+
+/* Prevent the page from bouncing beyond its scroll boundaries. */
+html,body{overscroll-behavior-y:none}
