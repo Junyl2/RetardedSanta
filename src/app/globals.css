@@ -130,3 +130,20 @@ main{overflow-x:clip}
 
 /* Prevent the page from bouncing beyond its scroll boundaries. */
 html,body{overscroll-behavior-y:none}
+
+.scribble-arrow{display:inline-block}
+@media(max-width:700px){.scribble-arrow{transform:rotate(90deg)}}
+
+
+/* A cleaner character poster gives the artwork room to lead. */
+.portrait-stage::before{display:none}
+.portrait-frame{border-radius:32px;transform:rotate(-2deg);box-shadow:10px 10px 0 var(--gold)}
+.portrait-frame img{aspect-ratio:1.25;object-position:38% center}
+@media(hover:hover) and (pointer:fine){.portrait-stage:hover .portrait-frame{transform:rotate(0) translateY(-4px);box-shadow:13px 15px 0 var(--gold)}}
+@media(max-width:700px){
+  .intro{gap:26px}
+  .portrait-stage{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:6px 8px 0;margin:0}
+  .portrait-frame{grid-column:1 / -1;margin:0 3px 12px;border-radius:24px;border-width:5px;transform:rotate(-1deg);box-shadow:7px 7px 0 var(--gold)}
+  .portrait-frame img{aspect-ratio:1.2;object-position:38% center}
+  .portrait-stage .tag{position:static;display:flex;align-items:center;justify-content:center;min-height:38px;padding:8px 5px;transform:none;box-shadow:none;font-size:clamp(.65rem,2.7vw,.8rem);text-align:center}
+}
