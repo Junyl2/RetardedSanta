@@ -192,3 +192,12 @@ html::-webkit-scrollbar{width:12px}
 html::-webkit-scrollbar-track{background:var(--dark)}
 html::-webkit-scrollbar-thumb{background:var(--red);border:3px solid var(--dark);border-radius:999px}
 html::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* Keep the kicker and arrow consistent across browser and emoji fonts. */
+.eyebrow{display:flex;align-items:center;gap:.45rem}
+.eyebrow-star{width:1rem;height:1rem;flex:none;fill:currentColor}
+.scribble-arrow{width:1.1em;height:1.1em;vertical-align:-.15em;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:700px){
+  .eyebrow{font-size:clamp(.57rem,2.6vw,.83rem);letter-spacing:.06em;gap:.3rem;white-space:nowrap}
+  .eyebrow-star{width:.9em;height:.9em}
+}
