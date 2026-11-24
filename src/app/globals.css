@@ -209,3 +209,6 @@ html::-webkit-scrollbar-thumb:hover{background:var(--gold)}
   .certificate-controls{flex-direction:column;align-items:stretch}
   .certificate-controls input,.certificate-controls .certificate-button{width:100%}
 }
+
+/* Draw decorative stars as vectors so iOS never substitutes colored emoji. */
+.spark-symbol{display:inline-block;width:1em;height:1em;fill:currentColor;vertical-align:-.1em;flex:none}
