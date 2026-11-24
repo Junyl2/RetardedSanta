@@ -201,3 +201,11 @@ html::-webkit-scrollbar-thumb:hover{background:var(--gold)}
   .eyebrow{font-size:clamp(.57rem,2.6vw,.83rem);letter-spacing:.06em;gap:.3rem;white-space:nowrap}
   .eyebrow-star{width:.9em;height:.9em}
 }
+
+/* Make primary actions easy to tap across the full mobile content width. */
+@media(max-width:700px){
+  .button-row{flex-direction:column;align-items:stretch}
+  .button-row .button{width:100%}
+  .certificate-controls{flex-direction:column;align-items:stretch}
+  .certificate-controls input,.certificate-controls .certificate-button{width:100%}
+}
