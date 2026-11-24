@@ -78,10 +78,20 @@ export default function Home() {
       }
       ctx.closePath(); ctx.fill();
     };
+    const drawCenteredRow = (left: string, right: string, baseline: number) => {
+      const gap = 16;
+      const radius = 12;
+      const leftWidth = ctx.measureText(left).width;
+      const rightWidth = ctx.measureText(right).width;
+      const rowWidth = leftWidth + rightWidth + 2 * gap + 2 * radius;
+      const start = (canvas.width - rowWidth) / 2;
+      ctx.textAlign = 'left';
+      ctx.fillText(left, start, baseline);
+      drawStar(start + leftWidth + gap + radius, baseline - 10, radius);
+      ctx.fillText(right, start + leftWidth + 2 * gap + 2 * radius, baseline);
+    };
     ctx.fillStyle = '#df281e'; ctx.font = 'bold 28px sans-serif';
-    ctx.textAlign = 'right'; ctx.fillText('OFFICIAL NORTH POLE DOCUMENT', 575, 120);
-    drawStar(600, 110, 12);
-    ctx.textAlign = 'left'; ctx.fillText('RETARD SANTA', 625, 120);
+    drawCenteredRow('OFFICIAL NORTH POLE DOCUMENT', 'RETARD SANTA', 120);
     ctx.textAlign = 'center';
     ctx.fillStyle = '#101c31'; ctx.font = 'bold 82px sans-serif'; ctx.fillText('NAUGHTY LIST', 600, 240);
     ctx.font = 'bold 38px sans-serif'; ctx.fillText('THIS CERTIFIES THAT', 600, 330);
@@ -90,9 +100,7 @@ export default function Home() {
     ctx.fillStyle = '#101c31'; ctx.font = 'bold 30px sans-serif'; ctx.fillText('IS OFFICIALLY ON THE LIST', 600, 500);
     ctx.font = '24px sans-serif'; ctx.fillText(stamped.join('  •  ') || 'CERTIFIED CHRISTMAS CHAOS', 600, 575, 1000);
     ctx.fillStyle = '#df281e'; ctx.font = 'bold 26px sans-serif';
-    ctx.textAlign = 'right'; ctx.fillText('SANTA APPROVED', 575, 690);
-    drawStar(600, 680, 12);
-    ctx.textAlign = 'left'; ctx.fillText('STAY MERRY. STAY WEIRD.', 625, 690);
+    drawCenteredRow('SANTA APPROVED', 'STAY MERRY. STAY WEIRD.', 690);
     const link = document.createElement('a'); link.download = 'naughty-list-certificate.png'; link.href = canvas.toDataURL('image/png'); link.click();
   }
   function toggle(item: string) { setStamped(previous => previous.includes(item) ? previous.filter(x => x !== item) : [...previous, item]); }
